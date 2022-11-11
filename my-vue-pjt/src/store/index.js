@@ -4,14 +4,18 @@ import axios from 'axios'
 
 Vue.use(Vuex)
 const api_key = process.env.VUE_APP_API_KEY
-const URL = `https://api.themoviedb.org/3/movie/top_rated`
+const URL = `https://api.themoviedb.org/3/movie/top_rated/`
 
 export default new Vuex.Store({
   state: {
+    movies: []
   },
   getters: {
   },
   mutations: {
+    GET_INFO(state, movies){
+      state.movies = movies
+    }
   },
   actions: {
     getInfo() {
@@ -25,7 +29,8 @@ export default new Vuex.Store({
         }
       })
       .then(res => {
-        console.log(res)
+        this.commit('GET_INFO', res.data.results)
+        
       })
       .catch(err => {
         console.log(URL)
