@@ -15,7 +15,9 @@ export default new Vuex.Store({
   },
   actions: {
     getInfo() {
-      axios.get(URL, {
+      axios({
+        method: 'get',
+        url: URL,
         params: {
           api_key: api_key,
           language: "en-US", 
