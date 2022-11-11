@@ -1,8 +1,11 @@
 <template>
   <div>
     <h1>나옴?</h1>
-    <button @click="getInfo">이거</button>
-    <MovieCard/>
+    <MovieCard 
+    v-for="movie in movies" 
+    :key="movie.id"
+    :movie="movie"
+    />
   </div>
 </template>
 
@@ -12,13 +15,23 @@ import MovieCard from '@/components/MovieCard.vue'
 
 export default {
   name: 'MovieView',
+  data() {
+    return {
+      movies: this.$store.state.movies
+    }
+  },
   components: {
     MovieCard
   },
   methods: {
     getInfo() {
       this.$store.dispatch("getInfo")
+      
     }
-  }
+  },
+  mounted() {
+    this.getInfo()
+    
+  },
 }
 </script>
