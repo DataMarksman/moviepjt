@@ -1,8 +1,11 @@
 <template>
   <div id="app">
-    <router-link :to="{ name: 'movies'}">movies</router-link> |
-    <router-link :to="{ name: 'random'}">random</router-link> |
-    <router-link :to="{ name: 'watch'}">watch-list</router-link>
+    <nav>
+      
+      <router-link :to="{ name: 'movies'}">movies</router-link> |
+      <router-link :to="{ name: 'random'}">random</router-link> |
+      <router-link :to="{ name: 'watch'}">watch-list</router-link>
+    </nav>
     <router-view/>
   </div>
 </template>
