@@ -8,13 +8,17 @@ const URL = `https://api.themoviedb.org/3/movie/top_rated`
 
 export default new Vuex.Store({
   state: {
-    movies: []
+    movies: [],
+    inputtedmovies: [],
   },
   getters: {
   },
   mutations: {
     GET_INFO(state, movies){
       state.movies = movies
+    },
+    INPUT_MOVIE(state, inputtedmovie) {
+      state.inputtedmovies.push(inputtedmovie)
     }
   },
   actions: {
